@@ -4,9 +4,9 @@ int main(void)
 {
   int i = 0;
   int count = 0;
-  node *list = NULL;
-  node *current = NULL;
-  node *new_node = NULL;
+  Node *list = NULL;
+  Node *current = NULL;
+  Node *new_node = NULL;
 
   // 노드 5개 추가
   for (i = 0; i < 5; i++)
@@ -81,10 +81,10 @@ int main(void)
   // destroy_node 테스트: 개별 노드 제거
   // ========================================
   printf("\n=== destroy_node 테스트 ===\n");
-  printf("Removing node at [2] (value should be 0)...\n\n");
+  printf("Removing Node at [2] (value should be 0)...\n\n");
 
   current = get_node_at(list, 2);
-  printf("Removing node with value: %d\n", current->data);
+  printf("Removing Node with value: %d\n", current->data);
   remove_node(&list, current);
   destroy_node(current);
 
@@ -103,13 +103,13 @@ int main(void)
   printf("\n=== destroy_all_nodes 테스트 ===\n");
   printf("Before destroy_all_nodes:\n");
   printf("  list pointer: %p\n", (void *)list);
-  printf("  node count: %d\n", count);
+  printf("  Node count: %d\n", count);
 
   destroy_all_nodes(&list);
 
   printf("\nAfter destroy_all_nodes:\n");
   printf("  list pointer: %p (should be NULL)\n", (void *)list);
-  printf("  node count: %d\n", get_node_count(list));
+  printf("  Node count: %d\n", get_node_count(list));
 
   // 안전성 테스트: NULL 리스트에 노드 추가
   printf("\n=== NULL 리스트에 노드 추가 테스트 ===\n");
