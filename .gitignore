@@ -1,0 +1,12 @@
+# 빌드 결과물
+*.o
+test_linked_list
+
+# 디버깅 심볼
+*.dSYM/
+
+# IDE 설정
+.vscode/
+
+# macOS
+.DS_Store
