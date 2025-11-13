@@ -1,6 +1,7 @@
 # 컴파일러 및 플래그 설정
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -O2 -lm
+SANITIZE_FLAGS = -fsanitize=address -g
 TARGET = astar
 OBJS = main.o astar.o
 
@@ -28,8 +29,10 @@ clean:
 run: $(TARGET)
 	./$(TARGET)
 
-# 메모리 누수 검사 (valgrind 설치 필요)
-valgrind: $(TARGET)
-	valgrind --leak-check=full --show-leak-kinds=all ./$(TARGET)
+# 메모리 누수 검사 (Address Sanitizer 사용)
+sanitize:
+	$(CC) $(CFLAGS) $(SANITIZE_FLAGS) -o $(TARGET) main.c astar.c
+	@echo "Sanitizer 빌드 완료"
+	./$(TARGET)
 
-.PHONY: all clean run valgrind help
+.PHONY: all clean run sanitize help
