@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang build linked list project",
+            "command": "/usr/bin/clang",
+            "args": [
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-g",
+                "${workspaceFolder}/test_linked_list.c",
+                "${workspaceFolder}/linked_list.c",
+                "-o",
+                "${workspaceFolder}/test_linked_list"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "컴파일러: /usr/bin/clang (모든 소스 파일 포함)"
+        }
+    ]
+}
